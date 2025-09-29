@@ -7,7 +7,7 @@ const renderOperator = async () => {
   const operatorContent = document.getElementById("operator-content");
   let operator;
   operator = data.find((operator) => operator.id === requestedID);
-  if (operator) {
+  if (response.ok && operator) {
     document.getElementById("image").src = "" + operator.image;
     document.getElementById("name").textContent = operator.name;
     document.getElementById("submittedBy").textContent =

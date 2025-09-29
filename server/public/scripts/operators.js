@@ -4,7 +4,7 @@ const renderOperators = async () => {
 
   const mainContent = document.getElementById("main-content");
 
-  if (data) {
+  if (response.ok && data) {
     data.map((operator) => {
       const card = document.createElement("div");
       card.classList.add("card");

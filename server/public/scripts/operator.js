@@ -1,17 +1,17 @@
 const renderOperator = async () => {
   const requestedID = parseInt(window.location.href.split("/").pop());
 
-  const response = await fetch("/operators");
+  const response = await fetch(`/operators/`);
   const data = await response.json();
 
   const operatorContent = document.getElementById("operator-content");
   let operator;
   operator = data.find((operator) => operator.id === requestedID);
-  if (operator) {
+  if (response.ok && operator) {
     document.getElementById("image").src = "" + operator.image;
     document.getElementById("name").textContent = operator.name;
     document.getElementById("submittedBy").textContent =
-      "Submitted by: " + operator.submittedBy;
+      "Submitted by: " + operator.submittedby;
     document.getElementById("position").textContent =
       "Position: " + operator.position;
     document.getElementById("description").textContent = operator.description;
